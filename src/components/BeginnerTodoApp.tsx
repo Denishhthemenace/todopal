@@ -53,16 +53,12 @@ const BeginnerTodoApp = () => {
           <a className="navbar-brand" href="#" style={{color: '#333', fontWeight: 'bold'}}>
             Todos List
           </a>
-          <div className="navbar-nav">
-            <a className="nav-link" href="#" style={{color: '#666'}}>Home</a>
-            <a className="nav-link" href="#" style={{color: '#666'}}>About</a>
-          </div>
         </div>
       </nav>
 
       <div className="container todo-container">
         {/* Header */}
-        <h1 className="header-title">Todo List by CodeWithHarry</h1>
+        <h1 className="header-title">Todo List</h1>
         
         {/* Add Todo Form */}
         <div className="add-todo-form">
