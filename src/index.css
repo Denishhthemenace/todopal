@@ -1,108 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
-@layer base {
-  :root {
-    --background: 220 13% 95%;
-    --foreground: 220 10% 20%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 220 10% 20%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 20%;
-
-    --primary: 214 100% 50%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 220 13% 91%;
-    --secondary-foreground: 220 10% 20%;
-
-    --muted: 220 13% 91%;
-    --muted-foreground: 220 9% 46%;
-
-    --accent: 220 13% 91%;
-    --accent-foreground: 220 10% 20%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 87%;
-    --input: 0 0% 100%;
-    --ring: 214 100% 50%;
-
-    --todo-shadow: 0 2px 8px hsla(220, 13%, 0%, 0.1);
-    --todo-shadow-hover: 0 4px 16px hsla(220, 13%, 0%, 0.15);
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+/* Basic CSS like a beginner would write */
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.todo-container {
+  margin-top: 20px;
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+.todo-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.todo-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.add-todo-form {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.navbar-custom {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
 }
