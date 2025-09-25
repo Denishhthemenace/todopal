@@ -48,83 +48,83 @@ const BeginnerTodoApp = () => {
   return (
     <div>
       {/* Basic Bootstrap Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-custom">
+      <nav className="navbar navbar-light bg-light border-bottom">
         <div className="container">
-          <a className="navbar-brand" href="#" style={{color: '#333', fontWeight: 'bold'}}>
-            Todos List
-          </a>
+          <span className="navbar-brand mb-0 h1">Todos List</span>
         </div>
       </nav>
 
-      <div className="container todo-container">
+      <div className="container mt-4">
         {/* Header */}
-        <h1 className="header-title">Todo List</h1>
+        <h1 className="text-center mb-4">Todo List</h1>
         
         {/* Add Todo Form */}
-        <div className="add-todo-form">
-          <h3>Add a Todo</h3>
-          <div className="mb-3">
-            <label className="form-label">Todo Title</label>
-            <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Read about PC Parts"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
+        <div className="card mb-4">
+          <div className="card-body">
+            <h3 className="card-title">Add a Todo</h3>
+            <div className="mb-3">
+              <label className="form-label">Todo Title</label>
+              <input 
+                type="text" 
+                className="form-control" 
+                placeholder="Read about PC Parts"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Todo Description</label>
+              <textarea 
+                className="form-control" 
+                rows={3}
+                placeholder="I have to read about latest pc parts in the market"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+            </div>
+            <button 
+              className="btn btn-primary" 
+              onClick={addTodo}
+            >
+              Add Todo
+            </button>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Todo Description</label>
-            <textarea 
-              className="form-control" 
-              rows={3}
-              placeholder="I have to read about latest pc parts in the market"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-          </div>
-          <button 
-            className="btn btn-primary" 
-            onClick={addTodo}
-            style={{backgroundColor: '#007bff', borderColor: '#007bff'}}
-          >
-            Add Todo
-          </button>
         </div>
 
         {/* Todos List */}
         <div>
           <h3>Your Todos</h3>
           {todos.length === 0 ? (
-            <p style={{color: '#666', fontSize: '18px'}}>No todos yet! Add one above.</p>
+            <p className="text-muted">No todos yet! Add one above.</p>
           ) : (
             todos.map((todo) => (
-              <div key={todo.id} className="todo-item">
-                <div className="d-flex align-items-start">
-                  <input 
-                    type="checkbox" 
-                    className="todo-checkbox"
-                    checked={todo.completed}
-                    onChange={() => toggleComplete(todo.id)}
-                    style={{marginTop: '5px'}}
-                  />
-                  <div className="flex-grow-1">
-                    <h5 className={todo.completed ? 'completed' : ''}>
-                      {todo.title}
-                    </h5>
-                    <p className={todo.completed ? 'completed' : ''} style={{margin: 0}}>
-                      {todo.description}
-                    </p>
-                    {todo.completed && (
-                      <small style={{color: '#28a745'}}>✓ Done</small>
-                    )}
+              <div key={todo.id} className="card mb-2">
+                <div className="card-body">
+                  <div className="d-flex align-items-start">
+                    <input 
+                      type="checkbox" 
+                      className="form-check-input me-3 mt-1"
+                      checked={todo.completed}
+                      onChange={() => toggleComplete(todo.id)}
+                    />
+                    <div className="flex-grow-1">
+                      <h5 className={todo.completed ? 'text-decoration-line-through text-muted' : ''}>
+                        {todo.title}
+                      </h5>
+                      <p className={`mb-1 ${todo.completed ? 'text-decoration-line-through text-muted' : ''}`}>
+                        {todo.description}
+                      </p>
+                      {todo.completed && (
+                        <small className="text-success">✓ Done</small>
+                      )}
+                    </div>
+                    <button 
+                      className="btn btn-danger btn-sm"
+                      onClick={() => deleteTodo(todo.id)}
+                    >
+                      Delete
+                    </button>
                   </div>
-                  <button 
-                    className="btn btn-delete btn-sm ms-2"
-                    onClick={() => deleteTodo(todo.id)}
-                  >
-                    Delete
-                  </button>
                 </div>
               </div>
             ))
